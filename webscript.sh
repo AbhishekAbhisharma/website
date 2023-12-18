@@ -1,5 +1,5 @@
 echo "checking diff"
-for i in `cat env-setups-details.txt`; do 
+for i in `host`; do 
     setupcompleted=`grep ^$i completed-setup.db` 
     echo "---test $setupcompleted test---"
     if [ -z "$setupcompleted" ]; then
