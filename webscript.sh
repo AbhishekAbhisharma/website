@@ -20,18 +20,18 @@ for i in `cat hosts`; do
 		echo "deployment started..."
        		## copy conf files
 		echo "copy files to server"
-       		scp -o StrictHostKeyChecking=no $i.* ubuntu@54.89.156.244:/tmp/
+       		scp -o StrictHostKeyChecking=no $i.* ubuntu@3.84.82.252:/tmp/
        		## create document root directory
 		echo "create doc root dir to server"
-       		ssh -t -o StrictHostKeyChecking=no ubuntu@54.89.156.244 sudo mkdir /var/www/html/$i
+       		ssh -t -o StrictHostKeyChecking=no ubuntu@3.84.82.252 sudo mkdir /var/www/html/$i
        		## move conf and web file to their localtion
 
 		echo "move conf and html file"
-       		ssh -t -o StrictHostKeyChecking=no ubuntu@54.89.156.244 sudo mv /tmp/$i.conf /etc/apache2/sites-enabled/$i.conf
-       		ssh -t -o StrictHostKeyChecking=no ubuntu@54.89.156.244 sudo mv /tmp/$i.html /var/www/html/$i/index.html
+       		ssh -t -o StrictHostKeyChecking=no ubuntu@3.84.82.252 sudo mv /tmp/$i.conf /etc/apache2/sites-enabled/$i.conf
+       		ssh -t -o StrictHostKeyChecking=no ubuntu@3.84.82.252 sudo mv /tmp/$i.html /var/www/html/$i/index.html
        		##restart apache 
        		echo "reload apache"
-       		ssh -t -o StrictHostKeyChecking=no ubuntu@54.89.156.244 sudo systemctl reload apache2
+       		ssh -t -o StrictHostKeyChecking=no ubuntu@3.84.82.252 sudo systemctl reload apache2
        		echo "$i"  >> completed-setup.db
     fi
 echo -e "\n deployment complted"    
