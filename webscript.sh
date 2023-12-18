@@ -1,5 +1,5 @@
 echo "checking diff"
-for i in `host`; do 
+for i in `hosts`; do 
     setupcompleted=`grep ^$i completed-setup.db` 
     echo "---test $setupcompleted test---"
     if [ -z "$setupcompleted" ]; then
