@@ -1,6 +1,6 @@
 echo "checking diff"
 for i in `cat hosts`; do 
-    setupcompleted=`grep ^$i completed-setup.db` 
+    setupcompleted=`grep ^$i completed-setup-db` 
     echo "---test $setupcompleted test---"
     if [ -z "$setupcompleted" ]; then
 		#print msg
@@ -14,7 +14,7 @@ for i in `cat hosts`; do
 		sed -i "s/SERVERNAME/$i/" $i.conf
         	#create html
 		echo "create html file"
-        	echo "<h1>Hello $i  "  > $i.html	
+        	echo "hii Abhi $i  "  > $i.html	
 
        		#deploy setup
 		echo "deployment started..."
